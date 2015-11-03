@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">  
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="canvas">
+	<meta name="author" content="telucis@126.com">
+	<title>canvas . learn</title>
+</head>
+<body onload="draw()">
+	<canvas id="canvas" width="1000" height="1000"></canvas>
+
+	<script type="text/javascript">
+	function draw(){
+		//绘制画图	
+		var canvas=document.getElementById('canvas');
+		canvas.style.background='#eee';
+		if(canvas==null)return false;
+		var g=canvas.getContext('2d');
+		//1.绘制矩形	fillRect(x,y,width,height)
+		g.fillStyle='#eef';
+		g.fillRect(0,0,400,300);
+		g.fillStyle='red';
+		g.strokeStyle='blue';
+		g.lineWidth=1;
+		g.fillRect(50,50,100,100);
+		g.strokeRect(50,50,100,100);
+		//清除矩形
+		g.clearRect(49,49,102,102);
+		//2.1绘制圆形	arc(x,y,r,startAngle,endAngle,anticlockwise)
+		for(var i=0;i<10;i++){
+			g.beginPath();
+			g.arc(i*25,i*25,i*10,0,Math.PI*2,true);
+			g.closePath();
+			g.fillStyle='rgba(255,0,0,0.5)';
+			g.fill();
+		}
+		//2.2绘制直线	lineTo(x,y)	moveTo(x,y)
+		var dx=150;
+		var dy=150;
+		var s=100;
+		g.fillStyle='rgba(100,255,200,0.5)';
+		g.strokeStyle='rgba(0,0,100,0.5)';
+		g.beginPath();
+		var dig=Math.PI/15*11;
+		for(var i=0;i<30;i++){
+			var x=Math.cos(i*dig);
+			var y=Math.sin(i*dig);
+			g.lineTo(dx+x*s,dy+y*s);
+		}
+		g.closePath();
+		g.fill();
+		g.stroke();
+		//3.1绘制线性渐变	creatLinearGradient(xStart,yStart,xEnd,yEnd)
+		//				addColorStop(offset,color)
+		var g1=g.createLinearGradient(0,400,0,800);
+		g1.addColorStop(0,'#ff0');
+		g1.addColorStop(1,'#0ff');
+		g.fillStyle=g1;
+		g.fillRect(0,400,400,400);
+		//3.2绘制径向渐变	creatRadialGradient(xStart,yStart,radiusStart,xE,yE,rE)
+		var g2=g.createRadialGradient(250,250,0,250,250,300);
+		g2.addColorStop(0,'rgba(255,0,0,0.5)');
+		g2.addColorStop(1,'rgba(255,255,0,0.5)');
+		g.fillStyle=g2;
+		g.fillRect(0,0,500,500);
+		//4.1坐标变换	translate(x,y)	scale(x,y)	rotate(angle)
+		g.translate(300,300);
+		g.fillStyle='rgba(255,0,0,0.25)'
+		for(var i=0;i<50;i++){
+			g.translate(25,25);
+			g.scale(0.95,0.95);
+			g.rotate(Math.PI/10);
+			g.fillRect(0,0,100,50);
+		}
+		create5Star(g);
+		//5.图形组合
+	}
+	//五角星
+	function create5Star(g){
+		var s=50;
+		var dx=400;
+		var dy=400;
+		g.beginPath();
+		g.fillStyle='rgba(255,0,0,0.5)';
+		var dig=Math.PI/5*4;
+		for(var i=0;i<5;i++){
+			var x=Math.cos(i*dig);
+			var y=Math.sin(i*dig);
+			g.lineTo(dx+x*s,dy+y*s);
+		}
+		g.closePath();
+		g.fill();
+	}
+	</script>
+</body>
+</html>
