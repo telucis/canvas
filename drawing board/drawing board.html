@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>drawing board</title>
+
+	<link rel="stylesheet" type="text/css" href="css/canvas.css">
+</head>
+<body>
+	<div id="drawController">
+		<img src="img/pencil.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="铅笔">
+		<img src="img/line.png"   alt="" width="20px" heigh="20px" class="img border_nochoose" title="直线">
+		<img src="img/cancel.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="撤销">
+		<img src="img/next.png"   alt="" width="20px" heigh="20px" class="img border_nochoose" title="重做">
+		<input type="button" id="chooseColor" title="选择颜色">
+		<img src="img/square.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="方形">
+		<img src="img/circle.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="圆形">
+		<img src="img/handwriting.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="涂鸦">
+		<img src="img/rubber.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="橡皮擦">
+		<img src="img/line_size_1.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="线条大小">
+		<img src="img/xx.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="清屏">
+		<img src="img/save.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="保存">
+		<a href="#"><img src="img/download.png" alt="" width="20px" height="20px" class="img border_nochoose" title="下载"></a>
+	</div>
+	<div>
+		<canvas id="canvas">浏览器不支持哦亲</canvas>
+		<canvas id="canvas_bak"></canvas>
+	</div>
+	<div id="showHistory">
+		<h2>记录您绘画成果</h2>
+		<table>
+			<tr>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+			</tr>
+			<tr align="center">
+				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+			</tr>
+			<tr>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+			</tr>
+			<tr align="center">
+				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+			</tr>
+		</table>
+	</div>
+	<div id="color">
+		<input type="button">
+		<input type="button">
+		<input type="button">
+		<input type="button">
+		<input type="button">
+		<input type="button">
+		<input type="button">
+		<input type="button">
+		<input type="button">
+	</div>
+	<div id="line_size">
+		<img src="img/line_size_1.png" alt="" width="80px" height="12px">
+		<img src="img/line_size_3.png" alt="" width="80px" height="12px">
+		<img src="img/line_size_5.png" alt="" width="80px" height="12px">
+		<img src="img/line_size_7.png" alt="" width="80px" height="12px">
+	</div>
+
+
+	<script type='text/javascript' src='js/jquery-1.4.min.js'></script>
+	<script type='text/javascript' src='js/draw.js'></script>
+	<script type='text/javascript' src='js/storage.js'></script>	
+	<script>
+	//初始化
+		$(function(){
+			initCanvas();
+			initDrag();
+			$('img')[0].click();
+			$('#color input').click(chooseColor);
+		})
+		function initCanvas(){
+			canvas=document.getElementById('canvas');
+			canvas.width=canvasWidth;
+			canvas.height=canvasHeight;
+			context=canvas.getContext('2d');
+			canvasTop=$(canvas).offset().top;
+			canvasLeft=$(canvas).offset().left;
+
+			canvas_bak=document.getElementById('canvas_bak');
+			canvas_bak.width=canvasWidth;
+			canvas_bak.height=canvasHeight;
+			context_bak=canvas_bak.getContext('2d');
+			
+		}
+		function initDrag(){
+
+		}
+	</script>
+</body>
+</html>
