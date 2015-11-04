@@ -12,12 +12,15 @@
 	<canvas id="canvas" width="1000" height="1000"></canvas>
 
 	<script type="text/javascript">
+	var i=0;
+	var height,width;
+	var g;
 	function draw(){
 		//绘制画图	
 		var canvas=document.getElementById('canvas');
 		canvas.style.background='#eee';
 		if(canvas==null)return false;
-		var g=canvas.getContext('2d');
+		g=canvas.getContext('2d');
 		//1.绘制矩形	fillRect(x,y,width,height)
 		g.fillStyle='#eef';
 		g.fillRect(0,0,400,300);
@@ -66,6 +69,7 @@
 		g.fillStyle=g2;
 		g.fillRect(0,0,500,500);
 		//4.1坐标变换	translate(x,y)	scale(x,y)	rotate(angle)
+		g.save();
 		g.translate(300,300);
 		g.fillStyle='rgba(255,0,0,0.25)'
 		for(var i=0;i<50;i++){
@@ -74,8 +78,49 @@
 			g.rotate(Math.PI/10);
 			g.fillRect(0,0,100,50);
 		}
+		g.restore();//恢复初始的变换
 		create5Star(g);
 		//5.图形组合
+		var oprtns=new Array(
+			"source-atop",
+			"source-in",
+			"source-out",
+			"source-over",
+			"destination-atop",
+			"destination-in",
+			"destination-out",
+			"destination-over",
+			"lighter",
+			"copy",
+			"xor"
+		);
+		//6.绘制阴影
+		g.shadowOffsetX=10;
+		g.shadowOffsetY=10;
+		g.shadowColor="rgba(100,100,100,0.5)";
+		g.shadowBlur=7.5;
+		g.fillRect(400,500,100,100);
+		//7.使用图像
+
+		//8.绘制文字
+		g.fillStyle='#00f';
+		g.font='italic 30px sans-serif';
+		g.textBaseline='top';
+		g.fillText('实例文字',0,0);
+		//9.1保存/恢复 		save(),restore(),
+		//9.2保存文件
+		//window.location=canvas.toDataURL("image/jpeg");
+		//9.3动画
+		height=canvas.height;
+		width=canvas.width;
+		setInterval(rotate,100);
+	}
+	//动画函数
+	function rotate(){
+		g.clearRect(0,0,width,height);
+		g.fillStyle="rgba(0,0,255,0.5)";
+		g.fillRect(i,0,20,20);
+		i=i+20;
 	}
 	//五角星
 	function create5Star(g){
