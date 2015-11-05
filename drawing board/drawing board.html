@@ -12,7 +12,7 @@
 		<img src="img/line.png"   alt="" width="20px" heigh="20px" class="img border_nochoose" title="直线">
 		<img src="img/cancel.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="撤销">
 		<img src="img/next.png"   alt="" width="20px" heigh="20px" class="img border_nochoose" title="重做">
-		<input type="button" id="chooseColor" title="选择颜色">
+		<input type="button" id="chooseColor" title="选择颜色" class='border_nochoose i1'>
 		<img src="img/square.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="方形">
 		<img src="img/circle.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="圆形">
 		<img src="img/handwriting.png" alt="" width="20px" heigh="20px" class="img border_nochoose" title="涂鸦">
@@ -30,43 +30,43 @@
 		<h2>记录您绘画成果</h2>
 		<table>
 			<tr>
-				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
-				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
-				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
-				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px" id='history_1'></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px" id='history_2'></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px" id='history_3'></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px" id='history_4'></td>
 			</tr>
 			<tr align="center">
-				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
-				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
-				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
-				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+				<td><a href="#" id="history_del_1">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png" id='history_download_1'>下载</a></td>
+				<td><a href="#" id="history_del_2">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png" id='history_download_2'>下载</a></td>
+				<td><a href="#" id="history_del_3">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png" id='history_download_3'>下载</a></td>
+				<td><a href="#" id="history_del_4">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png" id='history_download_4'>下载</a></td>
 			</tr>
 			<tr>
-				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
-				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
-				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
-				<td><img src="img/noimg.png" alt="" width="150px" height="150px"></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px" id='history_5'></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px" id='history_6'></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px" id='history_7'></td>
+				<td><img src="img/noimg.png" alt="" width="150px" height="150px" id='history_8'></td>
 			</tr>
 			<tr align="center">
-				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
-				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
-				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
-				<td><a href="#">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png">下载</a></td>
+				<td><a href="#" id="history_del_5">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png" id='history_download_5'>下载</a></td>
+				<td><a href="#" id="history_del_6">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png" id='history_download_6'>下载</a></td>
+				<td><a href="#" id="history_del_7">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png" id='history_download_7'>下载</a></td>
+				<td><a href="#" id="history_del_8">删除</a>&nbsp;&nbsp;<a href="#" download="picture.png" id='history_download_8'>下载</a></td>
 			</tr>
 		</table>
 	</div>
-	<div id="color">
-		<input type="button">
-		<input type="button">
-		<input type="button">
-		<input type="button">
-		<input type="button">
-		<input type="button">
-		<input type="button">
-		<input type="button">
-		<input type="button">
+	<div id="color" class="color">
+		<input type="button" class="i1">
+		<input type="button" class="i2">
+		<input type="button" class="i3">
+		<input type="button" class="i4">
+		<input type="button" class="i5">
+		<input type="button" class="i6">
+		<input type="button" class="i7">
+		<input type="button" class="i8">
+		<input type="button" class="i9">
 	</div>
-	<div id="line_size">
+	<div id="line_size" class="border_nochoose">
 		<img src="img/line_size_1.png" alt="" width="80px" height="12px">
 		<img src="img/line_size_3.png" alt="" width="80px" height="12px">
 		<img src="img/line_size_5.png" alt="" width="80px" height="12px">
@@ -78,12 +78,27 @@
 	<script type='text/javascript' src='js/draw.js'></script>
 	<script type='text/javascript' src='js/storage.js'></script>	
 	<script>
+	//撤销的array
+	var cancelList=new Array();
+	//撤销的次数
+	var cancelIndex=0;
 	//初始化
 		$(function(){
 			initCanvas();
 			initDrag();
-			$('img')[0].click();
+			//$('img')[0].click();
 			$('#color input').click(chooseColor);
+
+			var control=$('#drawController img');
+			control[0].onclick=draw_grah('pencil',this);
+			control[1].onclick=draw_grah('line',this);
+			control[2].onclick=cancel(this);
+			control[3].onclick=next(this);
+			control[4].onclick=draw_grah('square',this);
+			control[5].onclick=draw_grah('circle',this);
+			control[6].onclick=draw_grah('handwriting',this);
+			control[7].onclick=draw_grah('rubber',this);
+			control[8]
 		})
 		function initCanvas(){
 			canvas=document.getElementById('canvas');
@@ -97,7 +112,19 @@
 			canvas_bak.width=canvasWidth;
 			canvas_bak.height=canvasHeight;
 			context_bak=canvas_bak.getContext('2d');
-			
+		}
+		//下载图片
+		function downloadImage(){
+			$('#downloadImage_a')[0].href=canvas.toDataURL();
+			$('#downloadImage_a').click();
+		}
+		//展开颜色选择器
+		function showColor(obj){
+			var top=$(obj).offset().top;
+			var left=$(obj).offset().left;
+			$('#color')[0].style.left=left+'px';
+			$('#color')[0].style.top=top+'px';
+			$('#color').show();
 		}
 		function initDrag(){
 

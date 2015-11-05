@@ -35,6 +35,15 @@ table tr td img{
 	border-color: #ccc;
 	margin-top: 5px;
 }
+.i1{background: #000;}
+.i2{background: #f00;}
+.i3{background: #80ff00;}
+.i4{background: #0ff;}
+.i5{background: #808080;}
+.i6{background: #ff8000;}
+.i7{background: #408080;}
+.i8{background: #8000ff;}
+.i9{background: #cc0;}
 #color{
 	width: 250px;
 	height: 22px;
