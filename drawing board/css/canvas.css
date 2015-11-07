@@ -2,6 +2,7 @@ body{margin: 0;padding: 0;font-size: 12px;}
 #drawController{
 	position: absolute;left: 40px;top: 20px;width: 40px;
 }
+img{cursor: pointer;}
 .border_nochoose{
 	border-width: 2px;
 	border-style: dashed;
@@ -9,7 +10,10 @@ body{margin: 0;padding: 0;font-size: 12px;}
 	margin-top: 5px;
 }
 .border_choose{
-	border-color: rgba(230,69,4);
+	border-width: 2px;
+	border-color: rgb(255,0,0);
+	border-style: dashed;
+	margin-top: 5px;
 }
 canvas{
 	border-width: 1px;
