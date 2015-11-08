@@ -40,11 +40,7 @@ var draw_graph = function(graphType,obj){
 		
 		if(graphType == 'pencil'){
 			context_bak.beginPath();
-		}else if(graphType == 'circle'){
-			context.beginPath();
-			context.moveTo(startX ,startY );
-			context.lineTo(startX +2 ,startY+2);
-			context.stroke();	
+		}else if(graphType == 'circle'){	
 			
 		}else if(graphType == 'rubber'){							
 			context.clearRect(startX - size * 10 ,  startY - size * 10 , size * 20 , size * 20);				
@@ -64,12 +60,6 @@ var draw_graph = function(graphType,obj){
 				clearContext();
 				saveImageToAry();
 			}
-			var x = e.clientX   - canvasLeft;
-			var y = e.clientY  - canvasTop;	
-			context.beginPath();
-			context.moveTo(x ,y );
-			context.lineTo(x +2 ,y+2);
-			context.stroke();	
 		}
 	};
 
@@ -94,12 +84,7 @@ var draw_graph = function(graphType,obj){
 			if(canDraw){
 				context_bak.beginPath();
 				clearContext();
-				context_bak.moveTo(startX , startY);						
-				context_bak.lineTo(x  ,startY );
-				context_bak.lineTo(x  ,y );
-				context_bak.lineTo(startX  ,y );
-				context_bak.lineTo(startX  ,startY );
-				context_bak.stroke();
+				context_bak.strokeRect(startX,startY,x-startX,y-startY);
 			}
 		//直线
 		}else if(graphType =='line'){						
@@ -113,7 +98,7 @@ var draw_graph = function(graphType,obj){
 		//画笔
 		}else if(graphType == 'pencil'){
 			if(canDraw){
-				context_bak.lineTo(e.clientX   - canvasLeft ,e.clientY  - canvasTop);
+				context_bak.lineTo(x,y);
 				context_bak.stroke();						
 			}
 		//圆 未画得时候 出现一个小圆
@@ -152,13 +137,16 @@ var draw_graph = function(graphType,obj){
 			context_bak.lineWidth = 1;
 			clearContext();
 			context_bak.beginPath();			
-			context_bak.strokeStyle =  '#000000';						
+			context_bak.strokeStyle =  '#000000';
+			context_bak.strokeRect(x-size*10,y-size*10,20,20);
+			/*						
 			context_bak.moveTo(x - size * 10 ,  y - size * 10 );						
 			context_bak.lineTo(x + size * 10  , y - size * 10 );
 			context_bak.lineTo(x + size * 10  , y + size * 10 );
 			context_bak.lineTo(x - size * 10  , y + size * 10 );
 			context_bak.lineTo(x - size * 10  , y - size * 10 );	
 			context_bak.stroke();		
+			*/
 			if(canDraw){							
 				context.clearRect(x - size * 10 ,  y - size * 10 , size * 20 , size * 20);
 										
@@ -178,7 +166,7 @@ var draw_graph = function(graphType,obj){
 	$(canvas_bak).bind('mousedown',mousedown);
 	$(canvas_bak).bind('mousemove',mousemove);
 	$(canvas_bak).bind('mouseup',mouseup);
-	//s$(canvas_bak).bind('mouseout',mouseout);
+	$(canvas_bak).bind('mouseout',mouseout);
 }
 
 

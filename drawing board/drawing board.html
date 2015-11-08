@@ -11,20 +11,20 @@
 
 
 		<div id="drawController">	
-			<img src = 'img/pencil.png' width = '20px;' height = '20px;' class="img" onclick="draw_graph('pencil',this)" class = 'border_nochoose' title = '铅笔'/><br/>
-			<img src = 'img/line.png' width = '20px;' height = '20px;' class="img" onclick="draw_graph('line',this);" class = 'border_nochoose' title = '画直线'/><br/>
-			<img src = 'img/cancel.png' width = '20px;' height = '20px;' class="img" onclick="cancel(this)" class = 'border_nochoose' title = '撤销上一个操作'/><br/>
-			<img src = 'img/next.png' width = '20px;' height = '20px;' class="img" onclick="next(this)" class = 'border_nochoose' title = '重做上一个操作'/><br/>
-			<input id="chooseColor"  type="button"  class = 'i1 border_nochoose' onclick="showColor(this)" title = '选择颜色'/><br/>
-			<img src = 'img/square.png' width = '20px;' height = '20px;' class="img" onclick="draw_graph('square',this)" class = 'border_nochoose' title = '方形'/><br/>
-			<img src = 'img/circle.png' width = '20px;' height = '20px;' class="img" onclick="draw_graph('circle',this)" class = 'border_nochoose' title = '圆'/><br/>
-			<img src = 'img/handwriting.png' width = '20px;' height = '20px;' class="img" onclick="draw_graph('handwriting',this)" class = 'border_nochoose' title = '涂鸦'/><br/>
-			<img src = 'img/rubber.png' width = '20px;' height = '20px;' class="img" onclick="draw_graph('rubber',this)" class = 'border_nochoose' title = '橡皮擦'/><br/>
-			<img  id="chooseSize" src = 'img/line_size_1.png'  width = '20px;' height = '20px;' class="img" onclick="showLineSize(this)" class = 'border_nochoose' title = '线条大小'/><br/>
-			<img src = 'img/xx.png' width = '20px;' height = '20px;' class="img" onclick="clearContext('1')" class = 'border_nochoose' title = '清屏'/><br/>
-			<img src = 'img/save.png' width = '20px;' height = '20px;' class="img" onclick="save()" class = 'border_nochoose' title = '保存'/><br/>
+			<img src = 'img/pencil.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '铅笔'/><br/>
+			<img src = 'img/line.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '画直线'/><br/>
+			<img src = 'img/cancel.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '撤销上一个操作'/><br/>
+			<img src = 'img/next.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '重做上一个操作'/><br/>
+			<input id="chooseColor"  type="button"  class = 'i1 border_nochoose' title = '选择颜色'/><br/>
+			<img src = 'img/square.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '方形'/><br/>
+			<img src = 'img/circle.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '圆'/><br/>
+			<img src = 'img/handwriting.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '涂鸦'/><br/>
+			<img src = 'img/rubber.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '橡皮擦'/><br/>
+			<img  id="chooseSize" src = 'img/line_size_1.png'  width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '线条大小'/><br/>
+			<img src = 'img/xx.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '清屏'/><br/>
+			<img src = 'img/save.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '保存'/><br/>
 			<a href="#" download="picture.png"  id="downloadImage_a">
-				<img src = 'img/download.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '下载' onclick="downloadImage();"/>
+				<img src = 'img/download.png' width = '20px;' height = '20px;' class="img" class = 'border_nochoose' title = '下载'/>
 			</a><br/>
 		</div>
 		<div style="float:left;width:30%">
@@ -74,9 +74,6 @@
 		</div>
 		
 		
-
-
-	
 	
 		<div id="color" class="color" >
             <input class="i1" type="button"/>
@@ -129,6 +126,20 @@
 			canvas_bak.width = canvasWidth;
 			canvas_bak.height = canvasHeight;
 			context_bak = canvas_bak.getContext('2d');		
+
+			$('img:eq(0)').bind('click',function(){draw_graph('pencil',this);})		
+			$('img:eq(1)').bind('click',function(){draw_graph('line',this);})	
+			$('img:eq(2)').bind('click',function(){cancel(this);})			
+			$('img:eq(3)').bind('click',function(){next(this);})			
+			$('img:eq(4)').bind('click',function(){draw_graph('square',this);})			
+			$('img:eq(5)').bind('click',function(){draw_graph('circle',this);})			
+			$('img:eq(6)').bind('click',function(){draw_graph('handwriting',this);})	
+			$('img:eq(7)').bind('click',function(){draw_graph('rubber',this);})
+			$('img:eq(8)').bind('click',function(){showLineSize(this);})
+			$('img:eq(9)').bind('click',function(){clearContext('1');})
+			$('img:eq(10)').bind('click',function(){save();})
+			$('img:eq(11)').bind('click',function(){downloadImage();})		
+			$('#chooseColor').bind('click',function(){showColor(this)})			
 		}	
 		
 		//下载图片
@@ -141,10 +152,14 @@
 		var showColor = function(obj){
 			var top = $(obj).offset().top;
 			var left = $(obj).offset().left;		
-			$("#color")[0].style.left = left + "px";;
+			$("#color")[0].style.left = left+ 15+ "px";;
 			$("#color")[0].style.top = top + "px";
-			$("#color").show();
-		
+			if($('#color').is(':hidden')){
+				$("#color").show();	
+				$("#color").css('z-index',10);
+			}else{
+				$('#color').hide();
+			}
 		}
 		//展开线条大小选择器
 		var showLineSize = function(obj){
@@ -167,12 +182,11 @@
 			$("#chooseColor").addClass (objClass).addClass('border_nochoose');			
 			color  = $(this).css('background-color');
 			$("#color").hide();
-
 		}
 
 		//选择大小
 		var chooseLineSize =  function(_size){		
-			$("#chooseSize").attr("src" , "image/line_size_"+_size+".png");		
+			$("#chooseSize").attr("src" , "img/line_size_"+_size+".png");		
 			size = _size;
 			$("#line_size").hide();
 		}
